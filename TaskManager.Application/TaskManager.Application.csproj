@@ -18,7 +18,6 @@
   <ItemGroup>
     <Folder Include="DTOs\" />
     <Folder Include="Interfaces\" />
-    <Folder Include="UseCases\CreateTask\" />
     <Folder Include="UseCases\GetTasks\" />
     <Folder Include="UseCases\UpdateTask\" />
     <Folder Include="Validators\" />
