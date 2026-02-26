@@ -1,0 +1,40 @@
+# ===== Visual Studio =====
+.vs/
+.idea/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# ===== Build results =====
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+bin/
+obj/
+
+# ===== .NET =====
+*.dll
+*.pdb
+*.exe
+*.cache
+project.lock.json
+
+# ===== EF Core =====
+Migrations/*.cs
+
+# ===== Logs =====
+*.log
+
+# ===== OS =====
+.DS_Store
+Thumbs.db
+
+# ===== Coverage =====
+coverage/
+*.coverage
+*.coveragexml
+
+# ===== Docker =====
+docker-compose.override.yml
