@@ -1,12 +1,24 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MediatR;
+using Microsoft.AspNetCore.Mvc;
+using TaskManager.Application.UseCases.CreateTask;
 
-namespace TaskManager.Api.Controllers
+namespace TaskManager.Api.Controllers;
+
+[ApiController]
+[Route("api/tasks")]
+public sealed class TasksController : ControllerBase
 {
-    public class TasksController : Controller
+    private readonly IMediator _mediator;
+
+    public TasksController(IMediator mediator)
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
+        _mediator = mediator;
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> Create(CreateTaskCommand command)
+    {
+        var taskId = await _mediator.Send(command);
+        return CreatedAtAction(nameof(Create), new { id = taskId }, taskId);
     }
 }
