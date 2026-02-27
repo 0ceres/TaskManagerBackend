@@ -6,11 +6,11 @@ namespace TaskManager.Application.UseCases.CreateTask;
 
 public sealed class CreateTaskCommandHandler : IRequestHandler<CreateTaskCommand, Guid>
 {
-    private readonly ITaskRepository _tasRepository;
+    private readonly ITaskRepository _taskRepository;
 
     public CreateTaskCommandHandler(ITaskRepository taskRepository)
     {
-        _tasRepository = taskRepository;
+        _taskRepository = taskRepository;
     }
 
     public async Task<Guid> Handle(CreateTaskCommand request, CancellationToken cancellationToken)
@@ -20,7 +20,7 @@ public sealed class CreateTaskCommandHandler : IRequestHandler<CreateTaskCommand
             request.Description,
             request.DueDate);
 
-        await _tasRepository.AddAsync(task);
+        await _taskRepository.AddAsync(task);
 
         return task.Id;
     }

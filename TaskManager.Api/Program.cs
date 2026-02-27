@@ -1,4 +1,6 @@
+using TaskManager.Api.Endpoints;
 using TaskManager.Api.Extensions;
+using TaskManager.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,5 +34,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapTasksEndPoints();
 
 app.Run();

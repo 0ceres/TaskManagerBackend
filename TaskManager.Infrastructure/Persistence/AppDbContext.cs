@@ -1,9 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using TaskManager.Application.Interfaces;
 using TaskManager.Domain.Entities;
 
 namespace TaskManager.Infrastructure.Persistence;
 
-public sealed class AppDbContext : DbContext
+public sealed class AppDbContext : DbContext, IApplicationDbContext
 {
     public DbSet<TaskItem> Tasks => Set<TaskItem>();
 
